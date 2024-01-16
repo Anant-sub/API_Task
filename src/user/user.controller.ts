@@ -1,10 +1,12 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
 import { UserService } from './user.service';
+import { UserEntitiy } from 'src/typeorm/user.entity';
+import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
 @Controller('users')
 export class UserController {
 
-    constructor(private readonly userService: UserService) {}
-
+    constructor(private userService: UserService) {}
 
     @Get()
     getAllUsers(): object[]{
